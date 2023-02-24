@@ -1,0 +1,111 @@
+#Money So Big (Yeat)
+
+use_synth :piano
+
+use_bpm 138
+
+define :one do
+  play :b4
+  sleep 0.5
+  play :a4
+  sleep 0.5
+  play :gs4
+  sleep 0.5
+  play :cs5
+  sleep 0.5
+  play :b4
+  sleep 0.5
+  play :a4
+  sleep 0.5
+  play :gs4
+  sleep 0.5
+  play :cs5
+  sleep 0.5
+end
+
+define :two do
+  play :b4
+  sleep 0.5
+  play :a4
+  sleep 0.5
+  play :gs4
+  sleep 0.5
+  play :cs5
+  sleep 0.5
+  play :b4
+  sleep 0.5
+  play :a4
+  sleep 0.5
+  play :gs4
+  sleep 1
+end
+
+define :three do
+  play :b4
+  sleep 0.5
+  play :a4
+  sleep 0.5
+  play :fs5
+  sleep 0.5
+  play :cs5
+  sleep 0.5
+  play :b4
+  sleep 0.5
+  play :a4
+  sleep 0.5
+  play :e5
+  sleep 1
+end
+
+define :four do
+  play :b4
+  sleep 0.5
+  play :a4
+  sleep 0.5
+  play :e5
+  sleep 0.5
+  play :cs5
+  sleep 0.5
+  play :b4
+  sleep 0.5
+  play :a4
+  sleep 0.5
+  play :cs5 amp:
+  sleep 0.5
+end
+
+define :five do
+  play :b4
+  sleep 0.5
+  play :a4
+  sleep 0.5
+  play :e5
+  sleep 0.5
+  play :cs5
+  sleep 0.5
+  play :b4
+  sleep 0.5
+  play :a4
+  sleep 0.5
+  play :cs5 amp:
+  sleep 2
+end
+
+live_loop :song do
+  #Measure 1
+  one
+  #Measure 2
+  two
+  #Measure 3
+  one
+  #Measure 4
+  two
+  #Measure 5
+  three
+  #Measure 6
+  four
+  #Measure 7
+  three
+  #Measure 8
+  five
+end
