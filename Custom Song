@@ -1,111 +1,126 @@
+laugh = "C:/Users/isabella_larios/Desktop/laugh.wav"
 #Money So Big (Yeat)
 
 use_synth :piano
 
-use_bpm 138
+use_bpm 120
+
+
+live_loop :always do
+  sleep 16
+  play :fs2, sustain: 4.5, amp: 4.5
+  sleep 3
+  play :d2, sustain: 4.5, amp: 3
+  sleep 3
+  play :Db, sustain: 2.5, amp: 1.5
+  sleep 2
+  sample laugh
+  play :fs2, sustain: 4.5, amp: 4.5
+  sleep 3
+  play :d2, sustain: 4.5, amp: 3
+  sleep 3
+  play :Db, sustain: 2.5, amp: 1.5
+  sleep 2
+end
+
+x = 0.5
 
 define :one do
   play :b4
-  sleep 0.5
+  sleep x
   play :a4
-  sleep 0.5
+  sleep x
   play :gs4
-  sleep 0.5
+  sleep x
   play :cs5
-  sleep 0.5
+  sleep x
   play :b4
-  sleep 0.5
+  sleep x
   play :a4
-  sleep 0.5
+  sleep x
   play :gs4
-  sleep 0.5
+  sleep x
   play :cs5
-  sleep 0.5
+  sleep x
 end
 
 define :two do
   play :b4
-  sleep 0.5
+  sleep x
   play :a4
-  sleep 0.5
+  sleep x
   play :gs4
-  sleep 0.5
+  sleep x
   play :cs5
-  sleep 0.5
+  sleep x
   play :b4
-  sleep 0.5
+  sleep x
   play :a4
-  sleep 0.5
+  sleep x
   play :gs4
   sleep 1
 end
 
 define :three do
   play :b4
-  sleep 0.5
+  sleep x
   play :a4
-  sleep 0.5
+  sleep x
   play :fs5
-  sleep 0.5
+  sleep x
   play :cs5
-  sleep 0.5
+  sleep x
   play :b4
-  sleep 0.5
+  sleep x
   play :a4
-  sleep 0.5
+  sleep x
   play :e5
   sleep 1
 end
 
 define :four do
   play :b4
-  sleep 0.5
+  sleep x
   play :a4
-  sleep 0.5
+  sleep x
   play :e5
-  sleep 0.5
+  sleep x
   play :cs5
-  sleep 0.5
+  sleep x
   play :b4
-  sleep 0.5
+  sleep x
   play :a4
-  sleep 0.5
+  sleep x
   play :cs5, sustain: 1
-  sleep 0.5
+  sleep 1
 end
 
 define :five do
   play :b4
-  sleep 0.5
+  sleep x
   play :a4
-  sleep 0.5
+  sleep x
   play :e5
-  sleep 0.5
+  sleep x
   play :cs5
-  sleep 0.5
+  sleep x
   play :b4
-  sleep 0.5
+  sleep x
   play :a4
-  sleep 0.5
+  sleep x
   play :cs5, sustain: 1
-  sleep 2
+  sleep 1
 end
 
 live_loop :song do
-  #Measure 1
-  one
-  #Measure 2
-  two
-  #Measure 3
-  one
-  #Measure 4
-  two
-  #Measure 5
-  three
-  #Measure 6
-  four
-  #Measure 7
-  three
-  #Measure 8
-  five
+  with_fx :ixi_techno do
+    one
+    two
+    one
+    two
+    three
+    four
+    three
+    five
+  end
 end
