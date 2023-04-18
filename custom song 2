@@ -1,0 +1,40 @@
+#kid cudi- song 2
+background = "C:/Users/isabella_larios/Desktop/Playboii Carti - OG Kid Cudi (1).wav"
+vocals = "C:/Users/isabella_larios/Desktop/vocals.wav"
+bass = "C:/Users/isabella_larios/Desktop/bass.wav"
+
+
+
+use_bpm 104
+use_synth :bass_foundation
+
+live_loop :bass do
+  sample bass, amp: 3
+end
+
+live_loop :vocals do
+  sample vocals, amp: 2
+end
+
+
+live_loop :chrous do
+  play :eb5, sustain: 1
+  sleep 1
+  play :g5, sustain: 1
+  sleep 1
+  play :c6, sustain: 1
+  sleep 1
+  play :d6, sustain: 1
+  sleep 1
+  play :bb5, sustain: 0.5
+  sleep 0.7
+  play :c6, sustain: 0.5
+  sleep 0.7
+  play :a5, sustain: 1
+  sleep 1
+  play :f5, sustain: 1
+  sleep 1
+  play :g5, sustain: 1.5
+  sleep 2.5
+end
+
