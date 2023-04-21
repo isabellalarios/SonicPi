@@ -1,126 +1,103 @@
-laugh = "C:/Users/isabella_larios/Desktop/laugh.wav"
-#Money So Big (Yeat)
+drums = "C:/Users/isabella_larios/Desktop/drums.wav"
 
+use_bpm 112
 use_synth :piano
-
-use_bpm 120
-
-
-live_loop :always do
-  sleep 16
-  play :fs2, sustain: 4.5, amp: 4.5
-  sleep 3
-  play :d2, sustain: 4.5, amp: 3
-  sleep 3
-  play :Db, sustain: 2.5, amp: 1.5
-  sleep 2
-  sample laugh
-  play :fs2, sustain: 4.5, amp: 4.5
-  sleep 3
-  play :d2, sustain: 4.5, amp: 3
-  sleep 3
-  play :Db, sustain: 2.5, amp: 1.5
-  sleep 2
-end
 
 x = 0.5
 
+live_loop :drums do
+  sample drums
+end
+
 define :one do
-  play :b4
-  sleep x
-  play :a4
-  sleep x
-  play :gs4
-  sleep x
-  play :cs5
-  sleep x
-  play :b4
-  sleep x
-  play :a4
-  sleep x
-  play :gs4
-  sleep x
-  play :cs5
-  sleep x
+  notes = [:b4,:a4,:gs4,:cs5,:b4,:a4,:gs4,:cs5]
+  i=0
+  8.times do
+    play notes[i]
+    sleep x
+    i = i+1
+  end
 end
 
 define :two do
-  play :b4
-  sleep x
-  play :a4
-  sleep x
-  play :gs4
-  sleep x
-  play :cs5
-  sleep x
-  play :b4
-  sleep x
-  play :a4
-  sleep x
+  notes = [:b4,:a4,:gs4,:cs5,:b4,:a4]
+  i=0
+  6.times do
+    play notes[i]
+    sleep x
+  end
   play :gs4
   sleep 1
 end
 
 define :three do
-  play :b4
-  sleep x
-  play :a4
-  sleep x
-  play :fs5
-  sleep x
-  play :cs5
-  sleep x
-  play :b4
-  sleep x
-  play :a4
-  sleep x
+  notes = [:b4,:a4,:fs5,:cs5,:b4,:a4]
+  i=0
+  6.times do
+    play notes[i]
+    sleep x
+  end
   play :e5
   sleep 1
 end
 
-define :four do
-  play :b4
-  sleep x
-  play :a4
-  sleep x
-  play :e5
-  sleep x
-  play :cs5
-  sleep x
-  play :b4
-  sleep x
-  play :a4
-  sleep x
-  play :cs5, sustain: 1
-  sleep 1
-end
 
 define :five do
-  play :b4
-  sleep x
-  play :a4
-  sleep x
-  play :e5
-  sleep x
-  play :cs5
-  sleep x
-  play :b4
-  sleep x
-  play :a4
-  sleep x
+  notes = [:b4,:a4,:e5,:cs5,:b4,:a4]
+  i=0
+  6.times do
+    play notes[i]
+    sleep x
+  end
   play :cs5, sustain: 1
   sleep 1
+end
+
+live_loop :always do
+  2.times do
+    sleep 16
+    play :fs2, sustain: 4.5
+    sleep 3
+    play :d2, sustain: 4.5
+    sleep 3
+    play :Db, sustain: 2.5
+    sleep 2
+    play :fs2, sustain: 4.5
+    sleep 3
+    play :d2, sustain: 4.5
+    sleep 3
+    play :Db, sustain: 2.5
+    sleep 2
+  end
+  stop
 end
 
 live_loop :song do
-  with_fx :ixi_techno do
-    one
-    two
-    one
-    two
-    three
-    four
-    three
-    five
+  with_fx :distortion do
+    2.times do
+      one
+      two
+      one
+      two
+      three
+      five
+      three
+      five
+    end
+    stop
   end
 end
+
+sleep 60
+yo ="C:/Users/isabella_larios/Desktop/Yo Pierre, you wanna come out here (Pierre Bourne producer tag).wav"
+
+sample yo,start: 0, finish: 0.1, amp: 1
+sleep 0.5
+sample yo, start: 0.1, finish: 0.2, amp: 2
+sleep 0.5
+sample yo, start: 0.2, finish: 0.3, amp: 3
+sleep 0.5
+sample yo, start: 0.3, finish: 1, amp: 4
+sleep 0.5
+
+
