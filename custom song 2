@@ -1,41 +1,57 @@
 #kid cudi- song 2
 background = "C:/Users/isabella_larios/Desktop/Playboii Carti - OG Kid Cudi (1).wav"
-vocals = "C:/Users/isabella_larios/Desktop/vocals.wav"
+v1 = "C:/Users/isabella_larios/Desktop/vocals1.wav"
+v2 ="C:/Users/isabella_larios/Desktop/vocals2.wav"
+v3 ="C:/Users/isabella_larios/Desktop/vocals3.wav"
+v4 ="C:/Users/isabella_larios/Desktop/vocals4.wav"
 bass = "C:/Users/isabella_larios/Desktop/bass.wav"
+ending = "C:/Users/isabella_larios/Desktop/ending.wav"
 
 
-
-use_bpm 104
+use_bpm 105
 use_synth :bass_foundation
 
-live_loop :bass do
-  sample bass, amp: 3
+
+#layer 2
+define :ex do |x, y, z|
+  play x, sustain: y
+  sleep z
 end
 
-live_loop :vocals do
-  sample vocals, amp: 2
+
+#actuallyhear
+#layer 1
+sample bass, amp: 6
+sleep 19.5
+
+#layer 2
+live_loop :chorus do
+  4.times do
+    ex :eb5, 2 , 1
+    ex :g5, 1, 1
+    ex :c6, 5, 1
+    ex :d6, 0.25, 1
+    ex :bb5, 0.25, 0.7
+    ex :c6, 0.25, 0.7
+    ex :a5, 0.25, 1
+    ex :f5, 0.25, 1
+    ex :g5, 0.25, 2.5
+  end
+  stop
 end
 
+#layer 3
+vocals = [v1, v2, v3, v4]
+i = 0
+v = 2
 
-live_loop :chrous do
-  play :eb5, sustain: 1
-  sleep 1
-  play :g5, sustain: 1
-  sleep 1
-  play :c6, sustain: 1
-  sleep 1
-  play :d6, sustain: 1
-  sleep 1
-  play :bb5, sustain: 0.5
-  sleep 0.7
-  play :c6, sustain: 0.5
-  sleep 0.7
-  play :a5, sustain: 1
-  sleep 1
-  play :f5, sustain: 1
-  sleep 1
-  play :g5, sustain: 1.5
-  sleep 2.5
+4.times do
+  sample vocals[i] , amp: v
+  sleep 4.7
+  i = i + 1
+  v = v + 0.25
 end
 
- 
+sleep 38
+sample ending
+
